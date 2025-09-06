@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+
 const IntroPage = () => {
   const features = [
     { icon: '🔍', title: 'AI 기반 분석', desc: '언어 패턴, 출처 신뢰도, 팩트체킹 DB를 종합 분석합니다.' },
@@ -46,6 +48,50 @@ const IntroPage = () => {
         <h1>왜 FactCheck AI를 선택해야 할까요?</h1>
         <p>최첨단 AI 기술로 가짜뉴스를 정확하게 판별하고, 신뢰할 수 있는 정보만을 제공합니다.</p>
       </section>
+      <div className="sns-head">
+          <h2>실시간 SNS 연동</h2>
+          <p>우리가 쓰는 플랫폼 위에서 바로 팩트체크를 적용해보세요.</p>
+        </div>
+      {/* SNS 연동 카드 캐러셀 (간단 스크롤 스냅) */}
+      <section className="sns-section">
+        
+        {(() => {
+          const list = [
+            { name: 'X (Twitter)', tag: '실시간 확산 트윗, 즉시 판별', bg: 'grad-x' },
+            { name: 'YouTube', tag: '영상 설명/댓글, 링크 한 번으로', bg: 'grad-yt' },
+            { name: 'Instagram', tag: '피드/릴스 캡션 검증', bg: 'grad-ig' },
+            { name: 'Threads', tag: '스레드 토픽 요약+진위', bg: 'grad-th' },
+            { name: 'TikTok', tag: '짧은 영상의 사실 여부', bg: 'grad-tt' },
+          ]
+          const ref = useRef<HTMLDivElement>(null)
+          const scroll = (dir: 'prev' | 'next') => () => {
+            const el = ref.current
+            if (!el) return
+            const delta = Math.floor(el.clientWidth * 0.425)
+            el.scrollBy({ left: dir === 'next' ? delta : -delta, behavior: 'smooth' })
+          }
+          return (
+            <div className="sns-row">
+              <button className="sns-nav-btn prev" onClick={scroll('prev')} aria-label="prev">‹</button>
+              <div ref={ref} className="sns-scroll">
+                {list.map((p) => (
+                  <article key={p.name} className={`sns-card ${p.bg}`}>
+                    <div className="sns-content">
+                      <h3>{p.name}</h3>
+                      <p>{p.tag}</p>
+                      <div className="sns-cta">
+                        <button className="btn btn-primary">바로 연결</button>
+                      </div>
+                    </div>
+                    <div className="sns-visual" />
+                  </article>
+                ))}
+              </div>
+              <button className="sns-nav-btn next" onClick={scroll('next')} aria-label="next">›</button>
+            </div>
+          )
+        })()}
+      </section>
 
       <section className="intro-grid">
         {features.map((f, i) => (
@@ -68,6 +114,67 @@ const IntroPage = () => {
               <p>{s.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* 사용법 - 실시간 SNS 선택 + 챗봇 조사 */}
+      <section className="usage">
+        <h2>어떻게 사용하나요?</h2>
+        <p className="muted">실시간 SNS에서 점검할 내용을 선택하고, 챗봇과 대화하며 사실 여부를 빠르게 확인하세요.</p>
+        <div className="usage-steps">
+          <div className="usage-card">
+            <div className="usage-ico">1</div>
+            <h4>플랫폼 선택</h4>
+            <div className="chips">
+              <span>X</span><span>YouTube</span><span>Instagram</span><span>Threads</span><span>TikTok</span>
+            </div>
+          </div>
+          <div className="usage-card">
+            <div className="usage-ico">2</div>
+            <h4>점검 항목 선택</h4>
+            <div className="chips">
+              <span>출처 확인</span><span>날짜/맥락</span><span>인물/기관</span><span>수치 검증</span>
+            </div>
+          </div>
+          <div className="usage-card">
+            <div className="usage-ico">3</div>
+            <h4>챗봇에 질문</h4>
+            <div className="usage-input">
+              <input placeholder="URL 또는 텍스트를 붙여넣고 엔터" />
+              <button className="btn btn-primary">분석</button>
+            </div>
+            <div className="chat-demo">
+              <div className="bubble me">이 게시물 사실인가요?</div>
+              <div className="bubble bot">가짜 가능성 72%. 주요 근거: 공식 통계와 불일치, 원문 출처 부재.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 통계 - 최근 내 SNS에서의 거짓 정보 노출 */}
+      <section className="stats">
+        <h2>최근 내 SNS에서 본 거짓 정보</h2>
+        <p className="muted">최근 7일 기준</p>
+        <div className="stats-grid">
+          <div className="stat-card">
+            <div className="stat-num">12건</div>
+            <div className="stat-label">잠재적 거짓</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-num">5건</div>
+            <div className="stat-label">확정 오정보</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-num">18건</div>
+            <div className="stat-label">검증 요청</div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-num score">78%</div>
+            <div className="stat-label">탐지 정확도(샘플)</div>
+          </div>
+        </div>
+        <div className="bar" aria-hidden>
+          <div className="bar-fill" style={{ width: '78%' }} />
         </div>
       </section>
     </div>
