@@ -4,10 +4,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import RootLayout from '@/layouts/RootLayout'
-import AboutPage from '@/pages/AboutPage'
 import FacebookPage from '@/pages/FacebookPage'
-import HomePage from '@/pages/HomePage'
 import InsightPage from '@/pages/InsightPage'
+import InstagramPage from '@/pages/InstagramPage'
 import IntroPage from '@/pages/IntroPage'
 import LoginPage from '@/pages/LoginPage'
 import NaverNewsPage from '@/pages/NaverNewsPage'
@@ -22,8 +21,8 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: 'about', element: <AboutPage /> },
+      { index: true, element: <IntroPage /> },
+      { path: 'insta', element: <InstagramPage /> },
       { path: 'news', element: <NewsPage /> },
       { path: 'insights', element: <InsightPage /> },
       { path: 'notices', element: <NoticePage /> },

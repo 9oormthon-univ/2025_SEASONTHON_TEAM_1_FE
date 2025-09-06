@@ -60,6 +60,7 @@ const IntroPage = () => {
             { name: 'X', key: 'x' },
             { name: 'YouTube', key: 'yt' },
             { name: 'Instagram', key: 'ig' },
+            { name: 'Facebook', key: 'fb' },
             { name: 'Threads', key: 'th' },
             { name: 'TikTok', key: 'tt' },
           ].map((p) => (
@@ -75,6 +76,7 @@ const IntroPage = () => {
             { name: 'X (Twitter)', tag: '실시간 확산 트윗, 즉시 판별', bg: 'grad-x' },
             { name: 'YouTube', tag: '영상 설명/댓글, 링크 한 번으로', bg: 'grad-yt' },
             { name: 'Instagram', tag: '피드/릴스 캡션 검증', bg: 'grad-ig' },
+            { name: 'Facebook', tag: '게시물/댓글 팩트체크', bg: 'grad-fb' },
             { name: 'Threads', tag: '스레드 토픽 요약+진위', bg: 'grad-th' },
             { name: 'TikTok', tag: '짧은 영상의 사실 여부', bg: 'grad-tt' },
           ]
