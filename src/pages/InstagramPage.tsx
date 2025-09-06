@@ -1,7 +1,7 @@
-import ChatExtension from '@/components/ChatExtension'
-import { useState } from 'react'
+import ChatExtension from '@/components/ChatExtension';
+import { useState } from 'react';
 
-const AboutPage = () => {
+const InstagramPage = () => {
   const instaPosts = [
     {
       username: 'wikitree',
@@ -10,16 +10,16 @@ const AboutPage = () => {
       title: "2025 딩고뮤직 '킬링보이스' 콘서트 예매 안내",
       text: "딩고가 10월 18~19일 잠실실내체육관에서 콘서트를 개최한다는 소식입니다. 예매 정보와 일정 확인 필요.",
       sourceUrl: 'https://www.instagram.com/_tripgoing/p/DOQiINrkwjv/',
-      imageUrl: ''
+      imageUrl: '/src/asset/insta-dingo.png'
     },
     {
       username: 'trendpick_officl',
       weeksAgo: 1,
       likes: 5123,
-      title: '💡미혼 남녀를 위한 특별한 만남, 템플스테이 <나는 절로, 신흥사>',
-      text: `@jabinanum 행사에 무려 2,620명이 신청하며 역대급 경쟁률 기록! 남성 1,084명(90.3:1), 여성 1,536명(128:1)로 전체 평균 109:1🔥 작년 낙산사 편(77:1)을 훌쩍 넘는 수치. 행사는 10월 24일(금)~25일(토) 경북 김천 직지사에서 열리며, 최종 선발된 남녀 12쌍(총 24명)에게는 특별한 인연의 기회가 주어집니다.❣️`,
-      sourceUrl: 'https://www.instagram.com/jabinanum/',
-      imageUrl: ''
+      title: '정부, 디지털 미디어 문해력 캠페인 발표',
+      text: '청소년 대상 미디어 리터러시 교육 강화 방안 공개. 세부 일정은 미정.',
+      sourceUrl: 'https://www.instagram.com/p/ABCDEF12345/',
+      imageUrl: '/src/asset/insta-literacy.png'
     },
     {
       username: 'moo_i_mood',
@@ -121,7 +121,9 @@ const AboutPage = () => {
               <button className="ig-more">···</button>
             </header>
 
-            <div className="ig-post-media" />
+            <div className="ig-post-media">
+              {post.imageUrl && <img src={post.imageUrl} alt={post.title} />}
+            </div>
 
             <div className="ig-post-actions">
               <div className="ig-actions-left">
@@ -158,6 +160,6 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default InstagramPage
 
 

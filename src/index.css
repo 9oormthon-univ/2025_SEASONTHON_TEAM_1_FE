@@ -161,7 +161,20 @@ a { color: inherit; text-decoration: none; }
 .ig-username { font-weight: 700; }
 .ig-sub { color: #777; font-size: 12px; }
 .ig-more { margin-left: auto; border: 0; background: transparent; cursor: pointer; }
-.ig-post-media { background: #e5e5e5; aspect-ratio: 1 / 1; }
+.ig-post-media { 
+  background: #e5e5e5; 
+  aspect-ratio: 1 / 1; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-post-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .ig-post-actions { display: flex; justify-content: space-between; padding: 8px 12px; }
 .ig-post-actions button { border: 0; background: transparent; cursor: pointer; font-size: 18px; }
 .ig-post-body { padding: 0 12px 12px; display: grid; gap: 6px; }
@@ -248,6 +261,7 @@ a { color: inherit; text-decoration: none; }
 .sns-logo.th .ico { background: #000; }
 .sns-logo.tt .ico { background: #000; position: relative; }
 .sns-logo.tt .ico::after { content: ""; position: absolute; inset: 3px; background: linear-gradient(135deg,#25F4EE,#FE2C55); border-radius: 2px; opacity: .8; }
+.sns-logo.fb .ico { background: #1877f2; }
 .sns-row { position: relative; }
 .sns-scroll { display: grid; grid-auto-flow: column; grid-auto-columns: 33%; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 24px 0; }
 .sns-scroll::-webkit-scrollbar { display: none; }
@@ -267,6 +281,7 @@ a { color: inherit; text-decoration: none; }
 .grad-x { background: linear-gradient(135deg,#1f2937,#0ea5e9); color: #fff; }
 .grad-yt { background: linear-gradient(135deg,#fee2e2,#fecaca); }
 .grad-ig { background: linear-gradient(135deg,#f5d0fe,#e9d5ff); }
+.grad-fb { background: linear-gradient(135deg,#e3f2fd,#bbdefb); }
 .grad-th { background: linear-gradient(135deg,#dbeafe,#bfdbfe); }
 .grad-tt { background: linear-gradient(135deg,#ccfbf1,#a7f3d0); }
 
@@ -383,8 +398,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .fb-profile img {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   cursor: pointer;
+  object-fit: cover;
 }
 
 .fb-main {
@@ -430,7 +448,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .fb-sidebar-item img {
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .fb-content {
@@ -444,16 +465,24 @@ a { color: inherit; text-decoration: none; }
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .fb-stories-swiper {
   padding: 0;
   width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .fb-story-slide {
   width: 80px !important;
   flex-shrink: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fb-story {
@@ -466,6 +495,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 8px;
   width: 80px;
   flex-shrink: 0;
+  height: auto;
 }
 
 .fb-story:hover {
@@ -473,8 +503,11 @@ a { color: inherit; text-decoration: none; }
 }
 
 .fb-story img {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid #1877f2;
+  object-fit: cover;
 }
 
 .fb-story.own-story img {
@@ -502,7 +535,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .fb-create-post-header img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .fb-create-post-header form {
@@ -571,7 +607,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .fb-post-header img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .fb-post-user {
@@ -673,7 +712,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 .fb-contact-item img {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .fb-contact-item span {

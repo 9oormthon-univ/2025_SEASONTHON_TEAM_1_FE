@@ -12,7 +12,7 @@ const FacebookPage: React.FC = () => {
       id: 1,
       user: {
         name: 'Wikitree',
-        avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
+        avatar: '/src/asset/fb-profile1.png',
         time: '2시간 전'
       },
       title: "2025 딩고뮤직 '킬링보이스' 콘서트 예매 안내",
@@ -27,7 +27,7 @@ const FacebookPage: React.FC = () => {
       id: 2,
       user: {
         name: 'News1',
-        avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
+        avatar: '/src/asset/fb-profile2.png',
         time: '4시간 전'
       },
       title: '정부, 디지털 미디어 문해력 캠페인 발표',
@@ -42,7 +42,7 @@ const FacebookPage: React.FC = () => {
       id: 3,
       user: {
         name: 'FactDaily',
-        avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
+        avatar: '/src/asset/fb-profile3.png',
         time: '6시간 전'
       },
       title: 'SNS 확산 루머: 특정 약품 품절 사태',
@@ -57,11 +57,11 @@ const FacebookPage: React.FC = () => {
   ]);
 
   const stories = [
-    { id: 1, user: '내 스토리', avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+', isOwn: true },
-    { id: 2, user: '김철수', avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+' },
-    { id: 3, user: '이영희', avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+' },
-    { id: 4, user: '박민수', avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+' },
-    { id: 5, user: '정수진', avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMzAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+' }
+    { id: 1, user: '내 스토리', avatar: '/src/asset/fb-profile1.png', isOwn: true },
+    { id: 2, user: '김철수', avatar: '/src/asset/fb-profile2.png' },
+    { id: 3, user: '이영희', avatar: '/src/asset/fb-profile3.png' },
+    { id: 4, user: '박민수', avatar: '/src/asset/fb-profile1.png' },
+    { id: 5, user: '정수진', avatar: '/src/asset/fb-profile2.png' }
   ];
 
   const [newPost, setNewPost] = useState('');
@@ -73,7 +73,7 @@ const FacebookPage: React.FC = () => {
         id: Date.now(),
         user: {
           name: '나',
-          avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
+          avatar: '/src/asset/fb-profile3.png',
           time: '방금 전'
         },
         title: '사용자 게시물',
@@ -110,7 +110,7 @@ const FacebookPage: React.FC = () => {
             <button className="fb-nav-item">메뉴</button>
           </div>
           <div className="fb-profile">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="프로필" />
+            <img src="/src/asset/fb-profile1.png" alt="프로필" />
           </div>
         </div>
       </div>
@@ -120,45 +120,38 @@ const FacebookPage: React.FC = () => {
         <div className="fb-sidebar">
           <div className="fb-sidebar-section">
             <div className="fb-sidebar-item">
-              <span>콘텐츠</span>
+              <span><b>콘텐츠</b></span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="프로필" />
-              <span>게임&앱</span>
+              <span>🎮 게임&앱</span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="친구" />
-              <span>팔로잉 목록</span>
+              <span>👥 팔로잉 목록</span>
             </div>
             <div className="fb-sidebar-item">
-              <span>활동</span>
+              <span> </span>
+              <span><b>활동</b></span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="프로필" />
-              <span>사진 앨범</span>
+              <span>📷 사진 앨범</span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="시장" />
-              <span>동영상</span>
+              <span>📹 동영상</span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="동영상" />
-              <span>과거의 오늘</span>
+              <span>🕒 과거의 오늘</span>
             </div>
             <div className="fb-sidebar-item">
-              <span>기타</span>
+              <span><b>기타</b></span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="그룹" />
-              <span>커뮤니티 그룹</span>
+              <span>☕ 커뮤니티 그룹</span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="동영상" />
-              <span>이벤트</span>
+              <span>🎉 이벤트</span>
             </div>
             <div className="fb-sidebar-item">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTIiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="동영상" />
-              <span>즐겨찾기</span>
+              <span>⭐ 즐겨찾기</span>
             </div>
           </div>
         </div>
@@ -170,7 +163,8 @@ const FacebookPage: React.FC = () => {
             <Swiper
               modules={[Navigation, Pagination]}
               spaceBetween={10}
-              slidesPerView={5}
+              slidesPerView="auto"
+              direction="horizontal"
               className="fb-stories-swiper"
             >
               {stories.map((story) => (
@@ -187,7 +181,7 @@ const FacebookPage: React.FC = () => {
           {/* Create Post */}
           <div className="fb-create-post">
             <div className="fb-create-post-header">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="프로필" />
+              <img src="/src/asset/fb-profile2.png" alt="프로필" />
               <form onSubmit={handlePostSubmit}>
                 <input
                   type="text"
@@ -230,8 +224,10 @@ const FacebookPage: React.FC = () => {
                 </div>
                 <div className="fb-post-actions">
                   <button className="fb-post-action">
-                    <span>👍♥️</span>
-                    <span>{post.likes}</span>
+                  <span>👍</span>
+                  <span>{post.likes}</span>
+                  <span>♥️</span>
+                  <span>{post.likes}</span>
                   </button>
                   <button className="fb-post-action">
                     <span>💬</span>
@@ -253,22 +249,22 @@ const FacebookPage: React.FC = () => {
             <h3>친구</h3>
             <div className="fb-contact-list">
               <div className="fb-contact-item">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="김철수" />
+                <img src="/src/asset/fb-profile1.png" alt="강산들" />
                 <span>강산들</span>
                 <div className="fb-online-indicator"></div>
               </div>
               <div className="fb-contact-item">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="이영희" />
+                <img src="/src/asset/fb-profile2.png" alt="조재민" />
                 <span>조재민</span>
                 <div className="fb-online-indicator"></div>
               </div>
               <div className="fb-contact-item">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="박민수" />
+                <img src="/src/asset/fb-profile3.png" alt="최주경" />
                 <span>최주경</span>
                 <div className="fb-online-indicator"></div>
               </div>
               <div className="fb-contact-item">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+" alt="박민수" />
+                <img src="/src/asset/fb-profile1.png" alt="한상문" />
                 <span>한상문</span>
               </div>
             </div>
