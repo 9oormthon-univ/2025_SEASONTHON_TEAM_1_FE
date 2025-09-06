@@ -1,4 +1,9 @@
 import { useRef } from 'react'
+import twitterLogo from '@/assets/twitter.png'
+import youtubeLogo from '@/assets/youtube.png'
+import instagramLogo from '@/assets/instagram.jpeg'
+import facebookLogo from '@/assets/facebook.jpeg'
+import tiktokLogo from '@/assets/tiktok.png'
 
 const IntroPage = () => {
   const features = [
@@ -36,15 +41,15 @@ const IntroPage = () => {
             <span className="label">4.9/5 평점</span>
           </div>
         </div>
-        <div className="landing-right">
+        {/* <div className="landing-right">
           <div className="landing-media">
             <div className="chip top-right">2.3초 <span>분석 시간</span></div>
             <div className="chip bottom-left">97.3% <span>정확도</span></div>
           </div>
-        </div>
+        </div> */}
       </section>
 
-      <section className="intro-hero">
+      <section className="intro-hero" style={{ marginTop: '100px', marginBottom: '100px' }}>
         <h1>왜 FactCheck AI를 선택해야 할까요?</h1>
         <p>최첨단 AI 기술로 가짜뉴스를 정확하게 판별하고, 신뢰할 수 있는 정보만을 제공합니다.</p>
       </section>
@@ -73,12 +78,12 @@ const IntroPage = () => {
         
         {(() => {
           const list = [
-            { name: 'X (Twitter)', tag: '실시간 확산 트윗, 즉시 판별', bg: 'grad-x' },
-            { name: 'YouTube', tag: '영상 설명/댓글, 링크 한 번으로', bg: 'grad-yt' },
-            { name: 'Instagram', tag: '피드/릴스 캡션 검증', bg: 'grad-ig' },
-            { name: 'Facebook', tag: '게시물/댓글 팩트체크', bg: 'grad-fb' },
-            { name: 'Threads', tag: '스레드 토픽 요약+진위', bg: 'grad-th' },
-            { name: 'TikTok', tag: '짧은 영상의 사실 여부', bg: 'grad-tt' },
+            { name: 'X (Twitter)', tag: '실시간 확산 트윗, 즉시 판별', bg: 'grad-x', logo: twitterLogo },
+            { name: 'YouTube', tag: '영상 설명/댓글, 링크 한 번으로', bg: 'grad-yt', logo: youtubeLogo },
+            { name: 'Instagram', tag: '피드/릴스 캡션 검증', bg: 'grad-ig', logo: instagramLogo },
+            { name: 'Facebook', tag: '게시물/댓글 팩트체크', bg: 'grad-fb', logo: facebookLogo },
+            { name: 'Threads', tag: '스레드 토픽 요약+진위', bg: 'grad-th', logo: undefined },
+            { name: 'TikTok', tag: '짧은 영상의 사실 여부', bg: 'grad-tt', logo: tiktokLogo },
           ]
           const ref = useRef<HTMLDivElement>(null)
           const scroll = (dir: 'prev' | 'next') => () => {
@@ -94,13 +99,19 @@ const IntroPage = () => {
                 {list.map((p) => (
                   <article key={p.name} className={`sns-card ${p.bg}`}>
                     <div className="sns-content">
-                      <h3>{p.name}</h3>
-                      <p>{p.tag}</p>
+                      <div className="sns-headline">
+                        <div className="sns-text">
+                          <h3>{p.name}</h3>
+                          <p>{p.tag}</p>
+                        </div>
+                        <div className="sns-logo-wrap">
+                          {p.logo ? <img src={p.logo} alt={p.name} /> : <span className="ico" aria-hidden />}
+                        </div>
+                      </div>
                       <div className="sns-cta">
                         <button className="btn btn-primary">바로 연결</button>
                       </div>
                     </div>
-                    <div className="sns-visual" />
                   </article>
                 ))}
               </div>
