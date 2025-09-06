@@ -6,18 +6,14 @@ const RootLayout = () => {
       <header className="appbar">
         <div className="appbar-inner">
           <nav className="nav">
-            <Link to="/">AI PICK</Link>
             <NavLink to="/">홈</NavLink>
-            <NavLink to="/about">소개</NavLink>
-            <NavLink to="/news">뉴스</NavLink>
-            <NavLink to="/insights">인사이트</NavLink>
-            <NavLink to="/notices">공지</NavLink>
+            <NavLink to="/about">인스타그램</NavLink>
+            <NavLink to="/naver-news">네이버 뉴스</NavLink>
             <span className="divider">|</span>
-            <NavLink to="/newsletter">뉴스레터 구독</NavLink>
+            <NavLink to="/intro">서비스 소개</NavLink>
           </nav>
           <div className="spacer" />
           <div className="right">
-            <Link className="search" to="/search">🔍 검색</Link>
             <NavLink to="/login">로그인</NavLink>
             <NavLink to="/signup">회원가입</NavLink>
           </div>

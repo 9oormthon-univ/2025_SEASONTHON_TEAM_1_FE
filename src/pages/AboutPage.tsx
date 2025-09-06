@@ -54,36 +54,38 @@ const AboutPage = () => {
       </aside>
 
       <main className="ig-feed">
-        <article className="ig-post">
-          <header className="ig-post-header">
-            <div className="ig-avatar" />
-            <div className="ig-user">
-              <div className="ig-username">wikitree</div>
-              <div className="ig-sub">2주 · 팔로우</div>
-            </div>
-            <button className="ig-more">···</button>
-          </header>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <article key={i} className="ig-post">
+            <header className="ig-post-header">
+              <div className="ig-avatar" />
+              <div className="ig-user">
+                <div className="ig-username">wikitree</div>
+                <div className="ig-sub">{2 + i}주 · 팔로우</div>
+              </div>
+              <button className="ig-more">···</button>
+            </header>
 
-          <div className="ig-post-media" />
+            <div className="ig-post-media" />
 
-          <div className="ig-post-actions">
-            <div className="ig-actions-left">
-              <button>♡</button>
-              <button>💬</button>
-              <button>↗︎</button>
+            <div className="ig-post-actions">
+              <div className="ig-actions-left">
+                <button>♡</button>
+                <button>💬</button>
+                <button>↗︎</button>
+              </div>
+              <button>🔖</button>
             </div>
-            <button>🔖</button>
-          </div>
 
-          <div className="ig-post-body">
-            <div className="ig-likes">좋아요 6,384개</div>
-            <div className="ig-caption">
-              <span className="ig-username">wikitree</span>
-              <span className="ig-text"> 이정부가 추석 연휴 직후 금요일인 10월 10일(금)을 임시공휴일로 지정한다는 전망을 공식적으로 부인했습니다.</span>
+            <div className="ig-post-body">
+              <div className="ig-likes">좋아요 {6384 + i * 17}개</div>
+              <div className="ig-caption">
+                <span className="ig-username">wikitree</span>
+                <span className="ig-text"> 이정부가 추석 연휴 직후 금요일인 10월 10일(금)을 임시공휴일로 지정한다는 전망을 공식적으로 부인했습니다.</span>
+              </div>
+              <button className="ig-view-comments">댓글 {332 + i}개 모두 보기</button>
             </div>
-            <button className="ig-view-comments">댓글 332개 모두 보기</button>
-          </div>
-        </article>
+          </article>
+        ))}
       </main>
     </div>
   )

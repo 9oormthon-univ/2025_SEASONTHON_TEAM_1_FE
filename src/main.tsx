@@ -13,6 +13,8 @@ import NewsletterPage from '@/pages/NewsletterPage'
 import LoginPage from '@/pages/LoginPage'
 import SignupPage from '@/pages/SignupPage'
 import SearchPage from '@/pages/SearchPage'
+import IntroPage from '@/pages/IntroPage'
+import NaverNewsPage from '@/pages/NaverNewsPage'
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       { path: 'login', element: <LoginPage /> },
       { path: 'signup', element: <SignupPage /> },
       { path: 'search', element: <SearchPage /> },
+      { path: 'intro', element: <IntroPage /> },
+      { path: 'naver-news', element: <NaverNewsPage /> },
     ],
   },
 ])
