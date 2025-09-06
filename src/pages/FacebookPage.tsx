@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -11,12 +11,14 @@ const FacebookPage: React.FC = () => {
     {
       id: 1,
       user: {
-        name: '김철수',
+        name: 'Wikitree',
         avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
         time: '2시간 전'
       },
-      content: '오늘 날씨가 정말 좋네요! 산책하기 딱 좋은 날씨입니다. 여러분도 좋은 하루 보내세요! 😊',
-      image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjODA4MDgwIi8+Cjwvc3ZnPg==',
+      title: "2025 딩고뮤직 '킬링보이스' 콘서트 예매 안내",
+      content: '딩고가 10월 18~19일 잠실실내체육관에서 콘서트를 개최한다는 소식입니다. 예매 정보와 일정 확인 필요.',
+      sourceUrl: 'https://www.instagram.com/_tripgoing/p/DOQiINrkwjv/',
+      image: '',
       likes: 24,
       comments: 8,
       shares: 3
@@ -24,12 +26,14 @@ const FacebookPage: React.FC = () => {
     {
       id: 2,
       user: {
-        name: '이영희',
+        name: 'News1',
         avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
         time: '4시간 전'
       },
-      content: '새로운 프로젝트를 시작했습니다! 정말 기대되네요. 팀원들과 함께 열심히 해보겠습니다 💪',
-      image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjODA4MDgwIi8+Cjwvc3ZnPg==',
+      title: '정부, 디지털 미디어 문해력 캠페인 발표',
+      content: '청소년 대상 미디어 리터러시 교육 강화 방안 공개. 세부 일정은 미정.',
+      sourceUrl: 'https://www.instagram.com/p/ABCDEF12345/',
+      image: '',
       likes: 45,
       comments: 12,
       shares: 7
@@ -37,12 +41,14 @@ const FacebookPage: React.FC = () => {
     {
       id: 3,
       user: {
-        name: '박민수',
+        name: 'FactDaily',
         avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
         time: '6시간 전'
       },
-      content: '맛있는 파스타를 만들어봤어요! 레시피는 비밀입니다 😄',
-      image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDUwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjODA4MDgwIi8+Cjwvc3ZnPg==',
+      title: 'SNS 확산 루머: 특정 약품 품절 사태',
+      content: '약국 품절 소문이 돌고 있으나 식약처 공지와 불일치 가능성 제기.',
+      sourceUrl: 'https://www.instagram.com/p/GHIJKL67890/',
+      image: '',
       likes: 67,
       comments: 15,
       shares: 4
@@ -70,7 +76,9 @@ const FacebookPage: React.FC = () => {
           avatar: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM4MDgwODAiLz4KPC9zdmc+',
           time: '방금 전'
         },
+        title: '사용자 게시물',
         content: newPost,
+        sourceUrl: 'https://facebook.com/post/' + Date.now(),
         image: '',
         likes: 0,
         comments: 0,
@@ -81,6 +89,8 @@ const FacebookPage: React.FC = () => {
     }
   };
 
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+  const selected = useMemo(() => selectedId != null ? posts.find(p => p.id === selectedId) || null : null, [posts, selectedId]);
   return (
     <div className="facebook-page">
       {/* Facebook Header */}
@@ -204,7 +214,7 @@ const FacebookPage: React.FC = () => {
           {/* Posts */}
           <div className="fb-posts">
             {posts.map((post) => (
-              <div key={post.id} className="fb-post">
+              <div key={post.id} className={`fb-post${selectedId===post.id ? ' is-selected' : ''}`} onClick={() => setSelectedId(selectedId===post.id ? null : post.id)}>
                 <div className="fb-post-header">
                   <img src={post.user.avatar} alt={post.user.name} />
                   <div className="fb-post-user">
@@ -214,6 +224,7 @@ const FacebookPage: React.FC = () => {
                   <button className="fb-post-more">⋯</button>
                 </div>
                 <div className="fb-post-content">
+                  <h4 style={{ margin: '0 0 6px' }}>{post.title}</h4>
                   <p>{post.content}</p>
                   {post.image && <img src={post.image} alt="포스트 이미지" />}
                 </div>
@@ -264,7 +275,16 @@ const FacebookPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <ChatExtension />
+      <ChatExtension
+        verifyPayload={selected ? {
+          platform: 'facebook',
+          sourceUrl: selected.sourceUrl,
+          language: 'ko',
+          title: selected.title,
+          text: selected.content,
+          imageUrls: []
+        } : undefined}
+      />
     </div>
   );
 };

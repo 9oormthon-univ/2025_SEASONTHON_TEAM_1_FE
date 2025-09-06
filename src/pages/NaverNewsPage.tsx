@@ -1,23 +1,32 @@
 import ChatExtension from '@/components/ChatExtension'
+import { useState } from 'react'
 const NaverNewsPage = () => {
-  const leftArticles = Array.from({ length: 5 }).map((_, i) => ({
-    id: `l-${i}`,
-    title: `[속보] LG엔솔 "임직원 47명 협력사 2500억 구금...김기..."`,
-    summary: '국제신문 · 09월 06일 18:48 · 속보|조현 외교장관 "우리군과 300여 명 구금, 공휴일..."',
-  }))
+  const leftArticles = [
+    { id: 'l-0', title: '국내 항공요금 내년 인하 검토… 국토부·항공사 협의', summary: '한국경제 · 09월 06일 09:12 · 운임체계 개편 논의 본격화' },
+    { id: 'l-1', title: '기상청 "주말 강한 비바람… 태풍 북상 경로 주의"', summary: '연합뉴스 · 09월 06일 11:30 · 일부 지역 호우 특보 가능성' },
+    { id: 'l-2', title: '서울시, 심야버스 증편 시범 운영… 시민 체감 교통 확대', summary: '서울신문 · 09월 06일 14:05 · 노선·배차 개선안 공개' },
+    { id: 'l-3', title: '반도체 수출 7개월 연속 증가… IT 경기 회복 신호', summary: '전자신문 · 09월 06일 16:22 · 메모리·파운드리 동반 상승' },
+    { id: 'l-4', title: '교육부, AI 디지털교과서 단계적 확대… 2026년까지', summary: '경향신문 · 09월 06일 18:01 · 교실 혁신·교사 지원책 포함' },
+  ]
 
-  const midArticles = Array.from({ length: 4 }).map((_, i) => ({
-    id: `m-${i}`,
-    title: '[속보]LG엔솔 美 출장 전면 중단... 297명 구금',
-    source: '동아일보 · 09월 06일 18:48',
-  }))
+  const midArticles = [
+    { id: 'm-0', title: '국회, 데이터 기본법 소위 통과… 산업계 환영', source: 'KBS · 09월 06일 12:11' },
+    { id: 'm-1', title: 'WHO, 신종 호흡기 질환 경계 단계 재조정', source: 'MBC · 09월 06일 13:45' },
+    { id: 'm-2', title: '달 착륙선 추가 임무 성공… 과학장비 가동 개시', source: 'YTN · 09월 06일 15:02' },
+    { id: 'm-3', title: '원·달러 환율 장중 1,350원 하회… 외인 순매수', source: 'SBS · 09월 06일 17:28' },
+  ]
 
-  const rightArticles = Array.from({ length: 6 }).map((_, i) => ({
-    id: `r-${i}`,
-    title: '이 대통령, "한국인 대규모 구금 사태"에... "신속 해결 위해 총력 대응"',
-    source: 'KBS · 09월 06일 18:41',
-  }))
+  const rightArticles = [
+    { id: 'r-0', title: '방탄소년단, 친환경 캠페인 동참… 글로벌 행동 촉구', source: 'JTBC · 09월 06일 10:20' },
+    { id: 'r-1', title: '전기차 보조금 개편안 예고… 중저가 차종 집중', source: '조선일보 · 09월 06일 11:05' },
+    { id: 'r-2', title: '스타트업 투자, 3분기 반등… 후속 라운드 증가', source: '매일경제 · 09월 06일 13:10' },
+    { id: 'r-3', title: '프로야구 포스트시즌 윤곽… 막판 순위싸움 치열', source: '스포츠서울 · 09월 06일 16:40' },
+    { id: 'r-4', title: '부동산 전세가 안정세… 갭리스크 완화 조짐', source: '한국경제 · 09월 06일 17:05' },
+    { id: 'r-5', title: '메타버스 교육 현장 도입 가속… 체험형 수업 확대', source: 'ZDNet Korea · 09월 06일 18:22' },
+  ]
 
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [selectedPayload, setSelectedPayload] = useState<{ title: string; text: string } | null>(null)
   return (
     <div className="nv-page">
       <div className="nv-gnb">
@@ -45,15 +54,21 @@ const NaverNewsPage = () => {
               <strong>언론사편집</strong>
               <button className="nv-more">⋯</button>
             </div>
-            {leftArticles.map((a) => (
-              <div key={a.id} className="nv-article">
-                <div className="nv-thumb" />
-                <div className="nv-article-body">
-                  <h4>{a.title}</h4>
-                  <p className="nv-meta">{a.summary}</p>
+            <div className="nv-press-list">
+              {leftArticles.map((a) => (
+                <div
+                  key={a.id}
+                  className={`nv-news${selectedId===a.id ? ' is-selected' : ''}`}
+                  onClick={() => { const isSame = selectedId===a.id; setSelectedId(isSame ? null : a.id); setSelectedPayload(isSame ? null : { title: a.title, text: a.summary }); }}
+                >
+                  <div className="nv-thumb" />
+                  <div className="nv-article-body">
+                    <h4>{a.title}</h4>
+                    <p className="nv-meta">{a.summary}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 
@@ -74,7 +89,11 @@ const NaverNewsPage = () => {
           </div>
 
           {midArticles.map((a) => (
-            <div key={a.id} className="nv-card">
+            <div
+              key={a.id}
+              className={`nv-news nv-card${selectedId===a.id ? ' is-selected' : ''}`}
+              onClick={() => { const isSame = selectedId===a.id; setSelectedId(isSame ? null : a.id); setSelectedPayload(isSame ? null : { title: a.title, text: a.source || '' }); }}
+            >
               <div className="nv-meta">{a.source}</div>
               <div className="nv-article">
                 <div className="nv-thumb sm" />
@@ -89,14 +108,27 @@ const NaverNewsPage = () => {
         {/* Right column */}
         <section className="nv-col">
           {rightArticles.map((a) => (
-            <div key={a.id} className="nv-card">
+            <div
+              key={a.id}
+              className={`nv-news nv-card${selectedId===a.id ? ' is-selected' : ''}`}
+              onClick={() => { const isSame = selectedId===a.id; setSelectedId(isSame ? null : a.id); setSelectedPayload(isSame ? null : { title: a.title, text: a.source || '' }); }}
+            >
               <div className="nv-meta">{a.source}</div>
               <h4>{a.title}</h4>
             </div>
           ))}
         </section>
       </div>
-      <ChatExtension />
+      <ChatExtension
+        verifyPayload={selectedPayload ? {
+          platform: 'naver_news',
+          sourceUrl: 'https://news.naver.com/',
+          language: 'ko',
+          title: selectedPayload.title,
+          text: selectedPayload.text,
+          imageUrls: []
+        } : undefined}
+      />
     </div>
   )
 }

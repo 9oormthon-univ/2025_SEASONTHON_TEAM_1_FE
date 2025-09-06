@@ -1,6 +1,56 @@
 import ChatExtension from '@/components/ChatExtension'
+import { useState } from 'react'
 
 const AboutPage = () => {
+  const instaPosts = [
+    {
+      username: 'wikitree',
+      weeksAgo: 2,
+      likes: 6420,
+      title: "2025 딩고뮤직 '킬링보이스' 콘서트 예매 안내",
+      text: "딩고가 10월 18~19일 잠실실내체육관에서 콘서트를 개최한다는 소식입니다. 예매 정보와 일정 확인 필요.",
+      sourceUrl: 'https://www.instagram.com/_tripgoing/p/DOQiINrkwjv/',
+      imageUrl: ''
+    },
+    {
+      username: 'news1',
+      weeksAgo: 1,
+      likes: 5123,
+      title: '정부, 디지털 미디어 문해력 캠페인 발표',
+      text: '청소년 대상 미디어 리터러시 교육 강화 방안 공개. 세부 일정은 미정.',
+      sourceUrl: 'https://www.instagram.com/p/ABCDEF12345/',
+      imageUrl: ''
+    },
+    {
+      username: 'factdaily',
+      weeksAgo: 3,
+      likes: 7130,
+      title: 'SNS 확산 루머: 특정 약품 품절 사태',
+      text: '약국 품절 소문이 돌고 있으나 식약처 공지와 불일치 가능성 제기.',
+      sourceUrl: 'https://www.instagram.com/p/GHIJKL67890/',
+      imageUrl: ''
+    },
+    {
+      username: 'cityscope',
+      weeksAgo: 4,
+      likes: 4892,
+      title: '도시 축제 일정 변경 루머',
+      text: '비 예보로 인한 일정 변경 소식이 있으나 공식 홈페이지 고지 확인 필요.',
+      sourceUrl: 'https://www.instagram.com/p/MNOPQR24680/',
+      imageUrl: ''
+    },
+    {
+      username: 'sportsflash',
+      weeksAgo: 5,
+      likes: 8254,
+      title: '스타 선수 이적설 급부상',
+      text: '해외 매체 보도와 구단 공식 입장 상충. 팩트체크 필요.',
+      sourceUrl: 'https://www.instagram.com/p/STUVWX13579/',
+      imageUrl: ''
+    }
+  ] as const;
+  const [selectedIdx, setSelectedIdx] = useState<number | null>(null)
+  const selected = selectedIdx !== null ? instaPosts[selectedIdx] : null
   return (
     <div className="ig">
       <aside className="ig-sidebar">
@@ -56,13 +106,17 @@ const AboutPage = () => {
       </aside>
 
       <main className="ig-feed">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <article key={i} className="ig-post">
+        {instaPosts.map((post, i) => (
+          <article
+            key={i}
+            className={`ig-post${i === selectedIdx ? ' is-selected' : ''}`}
+            onClick={() => setSelectedIdx(selectedIdx === i ? null : i)}
+          >
             <header className="ig-post-header">
               <div className="ig-avatar" />
               <div className="ig-user">
-                <div className="ig-username">wikitree</div>
-                <div className="ig-sub">{2 + i}주 · 팔로우</div>
+                <div className="ig-username">{post.username}</div>
+                <div className="ig-sub">{post.weeksAgo}주 · 팔로우</div>
               </div>
               <button className="ig-more">···</button>
             </header>
@@ -79,17 +133,27 @@ const AboutPage = () => {
             </div>
 
             <div className="ig-post-body">
-              <div className="ig-likes">좋아요 {6384 + i * 17}개</div>
+              <div className="ig-likes">좋아요 {post.likes}개</div>
+              <div className="ig-post-title">{post.title}</div>
               <div className="ig-caption">
-                <span className="ig-username">wikitree</span>
-                <span className="ig-text"> 이정부가 추석 연휴 직후 금요일인 10월 10일(금)을 임시공휴일로 지정한다는 전망을 공식적으로 부인했습니다.</span>
+                <span className="ig-username">{post.username}</span>
+                <span className="ig-text"> {post.text}</span>
               </div>
               <button className="ig-view-comments">댓글 {332 + i}개 모두 보기</button>
             </div>
           </article>
         ))}
       </main>
-      <ChatExtension />
+      <ChatExtension
+        verifyPayload={selected ? {
+          platform: 'instagram',
+          sourceUrl: selected.sourceUrl,
+          language: 'ko',
+          title: selected.title,
+          text: selected.text,
+          imageUrls: selected.imageUrl ? [selected.imageUrl] : []
+        } : undefined}
+      />
     </div>
   )
 }
