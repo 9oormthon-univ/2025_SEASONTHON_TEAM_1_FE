@@ -1,3 +1,5 @@
+import ChatExtension from '@/components/ChatExtension'
+
 const AboutPage = () => {
   return (
     <div className="ig">
@@ -87,6 +89,7 @@ const AboutPage = () => {
           </article>
         ))}
       </main>
+      <ChatExtension />
     </div>
   )
 }

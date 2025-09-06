@@ -1,4 +1,5 @@
 import Carousel from '@/components/Carousel'
+import ChatExtension from '@/components/ChatExtension'
 import RightRail from '@/components/RightRail'
 
 const dummy = [
@@ -31,12 +32,15 @@ const dummy = [
 
 const HomePage = () => {
   return (
-    <div className="home-grid">
-      <div className="main">
-        <Carousel items={dummy.slice(0, 5)} />
+    <>
+      <div className="home-grid">
+        <div className="main">
+          <Carousel items={dummy.slice(0, 5)} />
+        </div>
+        <RightRail />
       </div>
-      <RightRail />
-    </div>
+      <ChatExtension />
+    </>
   )
 }
 
