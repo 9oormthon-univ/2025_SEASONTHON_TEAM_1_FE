@@ -2,18 +2,18 @@ import ChatExtension from '@/components/ChatExtension'
 import { useState } from 'react'
 const NaverNewsPage = () => {
   const leftArticles = [
-    { id: 'l-0', title: '국내 항공요금 내년 인하 검토… 국토부·항공사 협의', summary: '한국경제 · 09월 06일 09:12 · 운임체계 개편 논의 본격화' },
-    { id: 'l-1', title: '기상청 "주말 강한 비바람… 태풍 북상 경로 주의"', summary: '연합뉴스 · 09월 06일 11:30 · 일부 지역 호우 특보 가능성' },
-    { id: 'l-2', title: '서울시, 심야버스 증편 시범 운영… 시민 체감 교통 확대', summary: '서울신문 · 09월 06일 14:05 · 노선·배차 개선안 공개' },
-    { id: 'l-3', title: '반도체 수출 7개월 연속 증가… IT 경기 회복 신호', summary: '전자신문 · 09월 06일 16:22 · 메모리·파운드리 동반 상승' },
-    { id: 'l-4', title: '교육부, AI 디지털교과서 단계적 확대… 2026년까지', summary: '경향신문 · 09월 06일 18:01 · 교실 혁신·교사 지원책 포함' },
+    { id: 'l-0', title: '국내 항공요금 내년 인하 검토… 국토부·항공사 협의', summary: '한국경제 · 09월 06일 09:12 · 운임체계 개편 논의 본격화', image: '/src/asset/nanews-airplane.jpg' },
+    { id: 'l-1', title: '기상청 "주말 강한 비바람… 태풍 북상 경로 주의"', summary: '연합뉴스 · 09월 06일 11:30 · 일부 지역 호우 특보 가능성', image: '/src/asset/nanews-satellite.png' },
+    { id: 'l-2', title: '서울시, 심야버스 증편 시범 운영… 시민 체감 교통 확대', summary: '서울신문 · 09월 06일 14:05 · 노선·배차 개선안 공개', image: '/src/asset/nanews-bus.png' },
+    { id: 'l-3', title: '반도체 수출 7개월 연속 증가… IT 경기 회복 신호', summary: '전자신문 · 09월 06일 16:22 · 메모리·파운드리 동반 상승', image: '/src/asset/nanews-bando.png' },
+    { id: 'l-4', title: '교육부, AI 디지털교과서 단계적 확대… 2026년까지', summary: '경향신문 · 09월 06일 18:01 · 교실 혁신·교사 지원책 포함', image: '/src/asset/nanews-digital.png' },
   ]
 
   const midArticles = [
-    { id: 'm-0', title: '국회, 데이터 기본법 소위 통과… 산업계 환영', source: 'KBS · 09월 06일 12:11' },
-    { id: 'm-1', title: 'WHO, 신종 호흡기 질환 경계 단계 재조정', source: 'MBC · 09월 06일 13:45' },
-    { id: 'm-2', title: '달 착륙선 추가 임무 성공… 과학장비 가동 개시', source: 'YTN · 09월 06일 15:02' },
-    { id: 'm-3', title: '원·달러 환율 장중 1,350원 하회… 외인 순매수', source: 'SBS · 09월 06일 17:28' },
+    { id: 'm-0', title: '국회, 데이터 기본법 소위 통과… 산업계 환영', source: 'KBS · 09월 06일 12:11', image: '/src/asset/nanews-satellite.png' },
+    { id: 'm-1', title: 'WHO, 신종 호흡기 질환 경계 단계 재조정', source: 'MBC · 09월 06일 13:45', image: '/src/asset/nanews-hoho.png' },
+    { id: 'm-2', title: '달 착륙선 추가 임무 성공… 과학장비 가동 개시', source: 'YTN · 09월 06일 15:02', image: '/src/asset/nanews-satellite.png' },
+    { id: 'm-3', title: '원·달러 환율 장중 1,350원 하회… 외인 순매수', source: 'SBS · 09월 06일 17:28', image: '/src/asset/nanews-don.png' },
   ]
 
   const rightArticles = [
@@ -61,7 +61,9 @@ const NaverNewsPage = () => {
                   className={`nv-news${selectedId===a.id ? ' is-selected' : ''}`}
                   onClick={() => { const isSame = selectedId===a.id; setSelectedId(isSame ? null : a.id); setSelectedPayload(isSame ? null : { title: a.title, text: a.summary }); }}
                 >
-                  <div className="nv-thumb" />
+                  <div className="nv-thumb">
+                    <img src={a.image} alt={a.title} />
+                  </div>
                   <div className="nv-article-body">
                     <h4>{a.title}</h4>
                     <p className="nv-meta">{a.summary}</p>
@@ -85,6 +87,7 @@ const NaverNewsPage = () => {
             </div>
             <div className="nv-video">
               <span className="nv-live">LIVE</span>
+              <img src="/src/asset/nanews-gib.png" alt="live" className="nv-video-img" />
             </div>
           </div>
 
@@ -96,7 +99,9 @@ const NaverNewsPage = () => {
             >
               <div className="nv-meta">{a.source}</div>
               <div className="nv-article">
-                <div className="nv-thumb sm" />
+                <div className="nv-thumb sm">
+                  <img src={a.image} alt={a.title} />
+                </div>
                 <div className="nv-article-body">
                   <h4>{a.title}</h4>
                 </div>

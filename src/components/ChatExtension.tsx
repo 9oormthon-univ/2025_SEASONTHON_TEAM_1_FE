@@ -107,19 +107,40 @@ const ChatExtension: React.FC<ChatExtensionProps> = ({
     setVerifyData(null);
     try {
       const body = buildPayload();
+      console.log('요청 데이터:', body);
+      console.log('요청 URL:', verifyEndpoint);
+      
       const res = await fetch(verifyEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body: JSON.stringify(body),
       });
+      
+      console.log('응답 상태:', res.status);
+      console.log('응답 헤더:', res.headers);
+      
       if (!res.ok) {
         const text = await res.text().catch(() => '');
-        throw new Error(`요청 실패 (${res.status}) ${text}`);
+        throw new Error(`서버 오류 (${res.status}): ${text}`);
       }
       const data: VerifyResponse = await res.json();
+      console.log('응답 데이터:', data);
       setVerifyData(data);
-    } catch (e: any) {
-      setVerifyError(e?.message || '알 수 없는 오류가 발생했습니다');
+    } catch (e: unknown) {
+      console.error('요청 오류:', e);
+      let errorMessage = '알 수 없는 오류가 발생했습니다';
+      
+      if (e instanceof Error) {
+        if (e.message.includes('Failed to fetch')) {
+          errorMessage = '네트워크 연결을 확인해주세요. 서버에 접근할 수 없습니다.';
+        } else if (e.message.includes('CORS')) {
+          errorMessage = 'CORS 오류: 서버에서 요청을 차단했습니다.';
+        } else {
+          errorMessage = e.message;
+        }
+      }
+      
+      setVerifyError(errorMessage);
     } finally {
       setIsVerifying(false);
     }
@@ -186,7 +207,11 @@ const ChatExtension: React.FC<ChatExtensionProps> = ({
               <div className="confidence-label">⏳ 서버에 분석 요청 중...</div>
             )}
             {verifyError && (
-              <div className="confidence-label">⚠️ 오류: {verifyError}</div>
+              <div className="confidence-label" style={{ color: '#e53e3e', backgroundColor: '#fed7d7', padding: '8px', borderRadius: '4px', margin: '8px 0' }}>
+                ⚠️ 오류: {verifyError}
+                <br />
+                <small>개발자 도구 콘솔에서 자세한 정보를 확인할 수 있습니다.</small>
+              </div>
             )}
             {verifyData && (
               <div className="server-details">
@@ -239,7 +264,7 @@ const ChatExtension: React.FC<ChatExtensionProps> = ({
                 닫기
               </button>
               <button className="btn-primary" onClick={handleVerify} disabled={isVerifying}>
-                {isVerifying ? '분석 중...' : '분석할까말까'}
+                {isVerifying ? '분석 중...' : '분석하기'}
               </button>
             </div>
           </div>
