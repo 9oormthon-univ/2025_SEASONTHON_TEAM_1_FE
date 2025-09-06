@@ -1,13 +1,17 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 const RootLayout = () => {
   return (
     <div>
       <header className="appbar">
         <div className="appbar-inner">
+          <div className="brand">
+            <span>뉴스플랫폼</span>
+          </div>
           <nav className="nav">
             <NavLink to="/">홈</NavLink>
             <NavLink to="/about">인스타그램</NavLink>
+            <NavLink to="/facebook">페이스북</NavLink>
             <NavLink to="/naver-news">네이버 뉴스</NavLink>
             <span className="divider">|</span>
             <NavLink to="/intro">서비스 소개</NavLink>

@@ -4,17 +4,18 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 
 import RootLayout from '@/layouts/RootLayout'
-import HomePage from '@/pages/HomePage'
 import AboutPage from '@/pages/AboutPage'
-import NewsPage from '@/pages/NewsPage'
+import FacebookPage from '@/pages/FacebookPage'
+import HomePage from '@/pages/HomePage'
 import InsightPage from '@/pages/InsightPage'
-import NoticePage from '@/pages/NoticePage'
-import NewsletterPage from '@/pages/NewsletterPage'
-import LoginPage from '@/pages/LoginPage'
-import SignupPage from '@/pages/SignupPage'
-import SearchPage from '@/pages/SearchPage'
 import IntroPage from '@/pages/IntroPage'
+import LoginPage from '@/pages/LoginPage'
 import NaverNewsPage from '@/pages/NaverNewsPage'
+import NewsletterPage from '@/pages/NewsletterPage'
+import NewsPage from '@/pages/NewsPage'
+import NoticePage from '@/pages/NoticePage'
+import SearchPage from '@/pages/SearchPage'
+import SignupPage from '@/pages/SignupPage'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: 'search', element: <SearchPage /> },
       { path: 'intro', element: <IntroPage /> },
       { path: 'naver-news', element: <NaverNewsPage /> },
+      { path: 'facebook', element: <FacebookPage /> },
     ],
   },
 ])

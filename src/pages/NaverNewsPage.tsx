@@ -1,3 +1,4 @@
+import ChatExtension from '@/components/ChatExtension'
 const NaverNewsPage = () => {
   const leftArticles = Array.from({ length: 5 }).map((_, i) => ({
     id: `l-${i}`,
@@ -95,6 +96,7 @@ const NaverNewsPage = () => {
           ))}
         </section>
       </div>
+      <ChatExtension />
     </div>
   )
 }
