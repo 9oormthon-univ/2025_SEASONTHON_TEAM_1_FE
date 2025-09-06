@@ -306,13 +306,41 @@ a { color: inherit; text-decoration: none; }
 .nv-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
 .nv-more { border: 0; background: transparent; cursor: pointer; }
 .nv-article { display: grid; grid-template-columns: 120px 1fr; gap: 12px; }
-.nv-thumb { background: #e5e5e5; border-radius: 8px; height: 80px; }
+.nv-thumb { 
+  background: #e5e5e5; 
+  border-radius: 8px; 
+  height: 80px; 
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nv-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .nv-thumb.sm { width: 120px; height: 72px; }
 .nv-article-body h4 { margin: 0 0 6px; font-size: 16px; }
 .nv-meta { color: #777; font-size: 12px; margin-bottom: 6px; }
 .nv-broadcast .nv-chips { display: flex; gap: 8px; padding-bottom: 8px; overflow-x: auto; }
 .nv-chip { background: #f3f4f6; border-radius: 999px; padding: 6px 10px; font-size: 12px; }
-.nv-video { background: #cbd5e1; height: 220px; border-radius: 8px; position: relative; display: grid; place-items: center; }
+.nv-video { 
+  background: #cbd5e1; 
+  height: 220px; 
+  border-radius: 8px; 
+  position: relative; 
+  display: grid; 
+  place-items: center; 
+  overflow: hidden;
+}
+
+.nv-video-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
 .nv-live { position: absolute; top: 8px; left: 8px; background: #ef4444; color: #fff; font-size: 12px; padding: 2px 6px; border-radius: 6px; }
 
 /* Auth pages */
@@ -472,8 +500,12 @@ a { color: inherit; text-decoration: none; }
   padding: 0;
   width: 100%;
   height: auto;
+}
+
+.fb-stories-swiper .swiper-wrapper {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .fb-story-slide {
@@ -483,6 +515,11 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.fb-story-slide .swiper-slide {
+  width: 80px !important;
+  flex-shrink: 0;
 }
 
 .fb-story {

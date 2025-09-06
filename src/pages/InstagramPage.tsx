@@ -28,7 +28,7 @@ const InstagramPage = () => {
       title: 'SNS 확산 루머: 특정 약품 품절 사태',
       text: '약국 품절 소문이 돌고 있으나 식약처 공지와 불일치 가능성 제기.',
       sourceUrl: 'https://www.instagram.com/p/GHIJKL67890/',
-      imageUrl: ''
+      imageUrl: '/src/asset/insta-medicine.png'
     },
     {
       username: 'cityscope',

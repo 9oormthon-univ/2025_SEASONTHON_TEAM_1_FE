@@ -163,9 +163,23 @@ const FacebookPage: React.FC = () => {
             <Swiper
               modules={[Navigation, Pagination]}
               spaceBetween={10}
-              slidesPerView="auto"
+              slidesPerView={5}
               direction="horizontal"
               className="fb-stories-swiper"
+              breakpoints={{
+                320: {
+                  slidesPerView: 3,
+                  spaceBetween: 10
+                },
+                768: {
+                  slidesPerView: 4,
+                  spaceBetween: 10
+                },
+                1024: {
+                  slidesPerView: 5,
+                  spaceBetween: 10
+                }
+              }}
             >
               {stories.map((story) => (
                 <SwiperSlide key={story.id} className="fb-story-slide">
