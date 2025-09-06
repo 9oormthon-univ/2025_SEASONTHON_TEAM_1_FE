@@ -236,6 +236,15 @@ a { color: inherit; text-decoration: none; }
 .sns-head { text-align: left; }
 .sns-head h2 { margin: 0; font-size: 28px; }
 .sns-head p { color: #6b7280; margin: 0; }
+.sns-logos { display: flex; gap: 12px; align-items: center; padding: 0 16px; flex-wrap: wrap; }
+.sns-logo { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; border: 1px solid #e5e7eb; background: #fff; font-weight: 600; color: #111827; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.sns-logo .ico { width: 18px; height: 18px; border-radius: 4px; background: #e5e7eb; }
+.sns-logo.x .ico { background: #111827; }
+.sns-logo.yt .ico { background: #ff0000; }
+.sns-logo.ig .ico { background: linear-gradient(135deg,#f093fb,#f5576c); }
+.sns-logo.th .ico { background: #000; }
+.sns-logo.tt .ico { background: #000; position: relative; }
+.sns-logo.tt .ico::after { content: ""; position: absolute; inset: 3px; background: linear-gradient(135deg,#25F4EE,#FE2C55); border-radius: 2px; opacity: .8; }
 .sns-row { position: relative; }
 .sns-scroll { display: grid; grid-auto-flow: column; grid-auto-columns: 33%; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 24px 0; }
 .sns-scroll::-webkit-scrollbar { display: none; }

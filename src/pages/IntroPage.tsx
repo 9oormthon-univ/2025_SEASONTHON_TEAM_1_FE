@@ -54,6 +54,21 @@ const IntroPage = () => {
         </div>
       {/* SNS 연동 카드 캐러셀 (간단 스크롤 스냅) */}
       <section className="sns-section">
+        {/* 플랫폼 아이콘 스트립 */}
+        <div className="sns-logos">
+          {[
+            { name: 'X', key: 'x' },
+            { name: 'YouTube', key: 'yt' },
+            { name: 'Instagram', key: 'ig' },
+            { name: 'Threads', key: 'th' },
+            { name: 'TikTok', key: 'tt' },
+          ].map((p) => (
+            <span key={p.key} className={`sns-logo ${p.key}`}>
+              <span className="ico" aria-hidden />
+              {p.name}
+            </span>
+          ))}
+        </div>
         
         {(() => {
           const list = [
